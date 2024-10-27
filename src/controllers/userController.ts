@@ -98,7 +98,7 @@ export const removeFriend = async (req: Request, res: Response) => {
     try {
         const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: { userID: req.params.userId } } },   //may need to be changed
+            { $pull: { friends: { userId: req.params.userId } } },   //may need to be changed
             { runValidators: true, new: true }
         );
 
