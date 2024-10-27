@@ -56,7 +56,7 @@ const thoughtSchema = new Schema<IThought>(
         },
         createdAt: {
             type: Date,
-            default: Date.now,
+            default: () => new Date(),
             // NEEDS GETTER METHOD TO FORMAT THE TIMESTAMP ON QUERY; COULD ONLY GET IT DONE WITH VIRTUAL
         },
         username: {
