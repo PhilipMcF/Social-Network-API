@@ -1,4 +1,4 @@
-import { Schema, SchemaTypeOptions, Types, model, type Document } from 'mongoose';
+import { Schema, Types, model, type Document } from 'mongoose';
 import { format } from 'date-fns';
 
 interface IThought extends Document {
