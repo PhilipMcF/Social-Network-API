@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import userRoutes from './userRoutes';
-// import other routes
+import thoughtRoutes from './thoughtRoutes';
 
 const router = Router();
 
 router.use('/users', userRoutes);
-// use other routes
+router.use('/thoughts', thoughtRoutes);
 
 export default router;
