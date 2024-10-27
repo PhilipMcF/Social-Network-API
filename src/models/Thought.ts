@@ -72,11 +72,11 @@ const thoughtSchema = new Schema<IThought>(
     }
 );
 
-reactionSchema.virtual('createdAt').get(function() {
+reactionSchema.virtual('createdAtFormatted').get(function() {
     return format(this.createdAt, 'MMMM dd, yyyy hh:mm:ss a');
 })
 
-thoughtSchema.virtual('createdAt').get(function() {
+thoughtSchema.virtual('createdAtFormatted').get(function() {
     return format(this.createdAt, 'MMMM dd, yyyy hh:mm:ss a');
 })
 
