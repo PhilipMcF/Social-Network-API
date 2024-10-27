@@ -23,3 +23,5 @@ router.route('/:thought:id/reactions')
 // /api/thoughts/:thoughtId/reactions/:reactionId
 router.route('/:thoughtId/reactions/:reactionId')
     .delete(removeReaction)
+
+export default router;
