@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { 
     getUsers, getSingleUser, createUser, updateUser, deleteUser, addFriend, removeFriend 
-} from '../../controllers/userController';
+} from '../../controllers/userController.js';
 
 const router = Router();
 
