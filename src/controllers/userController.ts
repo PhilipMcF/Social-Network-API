@@ -78,7 +78,7 @@ export const addFriend = async (req: Request, res: Response) => {
     try {
         const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $addToSet: { friends: req.body } },
+            { $addToSet: { friends: req.body.friendId } },  //may need to be changed
             { runValidators: true, new: true }
         );
 
@@ -98,7 +98,7 @@ export const removeFriend = async (req: Request, res: Response) => {
     try {
         const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: { friendId: req.params.friendId } } },   //may need to be changed
+            { $pull: { friends: req.params.friendId } },   //may need to be changed
             { runValidators: true, new: true }
         );
 
