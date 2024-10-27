@@ -1,4 +1,4 @@
-import { Schema, Types, model, type Document } from 'mongoose';
+import { Schema, SchemaTypeOptions, Types, model, type Document } from 'mongoose';
 import { format } from 'date-fns';
 
 interface IThought extends Document {
@@ -32,8 +32,8 @@ const reactionSchema = new Schema<IReactions>(
         },
         createdAt: {
             type: Date, 
-            default: new Date(),
-            // NEEDS GETTER METHOD TO FORMAT THE TIMESTAMP ON QUERY
+            default: () => new Date(),
+            // NEEDS GETTER METHOD TO FORMAT THE TIMESTAMP ON QUERY; COULD ONLY GET IT DONE WITH VIRTUAL
         }
     },
     {
@@ -57,7 +57,7 @@ const thoughtSchema = new Schema<IThought>(
         createdAt: {
             type: Date,
             default: Date.now,
-            // NEEDS GETTER METHOD TO FORMAT THE TIMESTAMP ON QUERY
+            // NEEDS GETTER METHOD TO FORMAT THE TIMESTAMP ON QUERY; COULD ONLY GET IT DONE WITH VIRTUAL
         },
         username: {
             type: String,
@@ -72,11 +72,17 @@ const thoughtSchema = new Schema<IThought>(
     }
 );
 
+reactionSchema.virtual('createdAt').get(function() {
+    return format(this.createdAt, 'MMMM dd, yyyy hh:mm:ss a');
+})
+
+thoughtSchema.virtual('createdAt').get(function() {
+    return format(this.createdAt, 'MMMM dd, yyyy hh:mm:ss a');
+})
+
 thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
-
-thoughtSchema.virtual()
 
 const Thought = model('Thought', thoughtSchema);
 
