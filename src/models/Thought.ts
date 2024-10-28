@@ -42,7 +42,8 @@ const reactionSchema = new Schema<IReaction>(
         },
         toObject: {
             getters: true,
-        }
+        },
+        _id: false,
     }
 );
 
