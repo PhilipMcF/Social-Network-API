@@ -123,7 +123,7 @@ export const removeReaction = async (req: Request, res: Response) => {
     try {
         const thought = await Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $pull: { reactions: req.params.reactionId } },
+            { $pull: { reactions: { reactionID: req.params.reactionId } } },
             { runValidators: true, new: true }
         )
 
