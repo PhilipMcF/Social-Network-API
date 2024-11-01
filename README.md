@@ -34,9 +34,9 @@ npm install
 
 ## Usage
 
-[Click here to watch walkthrough video!]()
+[Click here to watch walkthrough video!](https://drive.google.com/file/d/1dL1rr6ncrEXX_E22asbCAKS99H5x2jR-/view?usp=sharing)
 
-[![Testing routes on Postman](./images/postmanRoutesTest.PNG)](https://github.com/PhilipMcF/Social-Network-API)
+[![Testing routes on Postman](./images/postmanRoutesTest.PNG)](https://drive.google.com/file/d/1dL1rr6ncrEXX_E22asbCAKS99H5x2jR-/view?usp=sharing)
 
 To start the project, make sure you are in the root directory of the repo/project and run this command in a terminal window:
 ```bash
